@@ -13,9 +13,7 @@ MultiPile criaPilha( int n );
 
 void destroiPilha( MultiPile *p );
 
-int empilhai(MultiPile *p, int e );
-
-int empilhaf( MultiPile *p, float e );
+int empilha(MultiPile *p, Element e, int s);
 
 int cheia( MultiPile *p );
 
