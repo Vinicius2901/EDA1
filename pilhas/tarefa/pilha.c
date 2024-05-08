@@ -1,23 +1,21 @@
 #include <stdlib.h>
 #include "pile.h"
 
-MultiPile criaPilha(int n)
+MultiPile* criaPilha(int n)
 {
-    MultiPile p;
-    p.tamVet = n;
-    p.topo2 = n;
-    p.topo1 = -1;
-    p.v = malloc(n * sizeof(Element));
+    MultiPile *p = malloc(sizeof(MultiPile));
+    p->tamVet = n;
+    p->topo2 = n;
+    p->topo1 = -1;
+    p->v = malloc(n * sizeof(Element));
     return p;
 }
 
-void destroiPilha(MultiPile *p)
+void destroiPilha(MultiPile **p)
 {
-    free(p->v);
-    p->v = NULL;
-    p->tamVet = 0;
-    p->topo1 = -1;
-    p->topo2 = 0;
+    free((*p)->v);
+    free(*p);
+    *p = NULL;
 }
 
 int empilha(MultiPile *p, Element e, int s)

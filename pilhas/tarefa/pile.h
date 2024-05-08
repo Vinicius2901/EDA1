@@ -10,9 +10,9 @@ typedef struct MultiPile{
     Element *v;
 } MultiPile;
 
-MultiPile criaPilha(int n );
+MultiPile* criaPilha(int n );
 
-void destroiPilha( MultiPile *p );
+void destroiPilha( MultiPile **p );
 
 // s = true -> int, s = false -> float
 int empilha(MultiPile *p, Element e, int s);
