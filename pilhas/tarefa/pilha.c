@@ -67,15 +67,11 @@ void reinicia(MultiPile *p)
 Element top(MultiPile *p , int s)
 {
     if (s && p->topo1 >= 0)
-    {
-        p->topo1--;
-        return (p->v)[p->topo1 + 1];
-    }
+        return (p->v)[p->topo1];
+    
     if (!s && p->topo2 <= p->tamVet)
-    {
-        p->topo2++;
-        return (p->v)[p->topo2 - 1];
-    }
+        return (p->v)[p->topo2];
+    
     Element error;
     return error;
 }
