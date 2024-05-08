@@ -4,6 +4,10 @@
 int main(){
     int n = 5;
     MultiPile *p = criaPilha(n);
+    if(vazia(p))
+        printf("vazia\n");
+    else
+        printf("tem algo\n");
     Element tmp;
     tmp.a = 1;
     empilha(p,tmp,1);
@@ -19,6 +23,13 @@ int main(){
     printf("%f\n",top(p,0).b);
 
     printf("newTtl: %i\n", numElements(p));
+    
+    reinicia(p);
+    if(vazia(p))
+        printf("vazia\n");
+    else
+        printf("tem algo\n");
+    
     destroiPilha(&p);
     if(p==NULL)
         printf("P is NULL\n");

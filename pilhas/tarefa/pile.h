@@ -28,3 +28,5 @@ Element top(MultiPile *p , int s);
 
 // s = true -> pilha Int, s = false -> pilha Float
 Element desempilha(MultiPile *p, int s);
+
+void reinicia(MultiPile *p);
