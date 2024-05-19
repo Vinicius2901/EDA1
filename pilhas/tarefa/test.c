@@ -33,7 +33,6 @@ int main(){
     destroiPilha(&p);
     if(p==NULL)
         printf("P is NULL\n");
-
     return 0;
 }
 
