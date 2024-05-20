@@ -14,3 +14,5 @@ char* topStr(Pile *p);
 void desempilhaStr(Pile *p);
 
 int empty(Pile *p);
+
+void freePile(Pile **p);
