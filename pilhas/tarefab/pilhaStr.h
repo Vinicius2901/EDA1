@@ -11,5 +11,6 @@ int emplaceStr(char *s, Pile *p);
 
 char* topStr(Pile *p);
 
-char* desempilhaStr(Pile *p);
+void desempilhaStr(Pile *p);
 
+int empty(Pile *p);

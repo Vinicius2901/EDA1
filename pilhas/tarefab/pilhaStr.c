@@ -12,27 +12,33 @@ Pile *criaPilha(int n){
 }
 
 int emplaceStr(char *s, Pile *p){
-    if(p->capacity<=p->position)
-        return 1;
-    p->container[p->position];
+    int val = 0;
+    if(p->capacity<=p->position+1){
+        p->container = realloc(p->container, 2*((p->capacity)*sizeof(char*)));
+        p->capacity = 2*(p->capacity);
+        val = 1;
+    }
     p->position++;
-    return 0;
+    p->container[p->position] = s;
+    return val;
 }
 
 char* topStr(Pile *p){
     return p->container[p->position];
 }
 
-char* desempilhaStr(Pile *p){
-    if(p->position<=-1)
-        return NULL;
-    char* v = p->container[p->position];
+void desempilhaStr(Pile *p){
+    free(p->container[p->position]);
     p->position--;
-    return v;
 }
 
 void freePile(Pile **p){
     free((*p)->container);
     free(*p);
     *p = NULL;
+}
+
+
+int empty(Pile *p){
+    return p->position==-1;
 }
