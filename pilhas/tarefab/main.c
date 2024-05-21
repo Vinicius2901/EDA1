@@ -26,7 +26,7 @@ int main(){
             }  
             if(s[0]=='/')
                 if(strcmp(s+1,topStr(p))){
-                   printf("HTML invalido!\n");
+                   printf("Recebeu <%s>, esperava </%s>\n", s, topStr(p));
                    break; 
                 }else{
                     desempilhaStr(p);
@@ -48,8 +48,26 @@ int main(){
             s = realloc(s,(i+1)*sizeof(char));
             s[i-1] = c;
             s[i] = '\0';
+            if( !strcmp( s, "!--") ) {
+            	flag = 0;
+                while ( c != '>' ) {
+                    c = fgetc(f);
+                }
+                s = realloc( s, sizeof(char) );
+                s = 0;
+                i=0;
+            }
+            else if( !strcmp( s, "--") ) {
+            	flag = 0;
+                while ( c != '>' ) {
+                    c = fgetc(f);
+                }
+                s = realloc( s, sizeof(char) );
+                s = 0;
+                i=0;
+            }
         }
-        if(c=='<')
+        if(c=='<') 
             flag = 1;
         c = fgetc(f);
     }while(c != EOF);
