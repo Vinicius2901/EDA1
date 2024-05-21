@@ -4,8 +4,14 @@
 #include <stdlib.h>
 
 
-int main(){
-    FILE *f = fopen("test.html","rt");
+int main( int argc, char *argv[] ){
+    if (argc < 2) {
+        fprintf(stderr, "[ E ]: Forneca o caminho completo do arquivo por meio do parametro. \n");
+        exit(EXIT_FAILURE);
+    }
+
+    FILE *f = fopen(argv[1],"rt");
+
     Pile *p = criaPilha(1);
     if(f==NULL){
         printf("Falha em abrir arquivo\n");
