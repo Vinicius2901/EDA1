@@ -32,14 +32,17 @@ int empilha(MultiPile *p, Element e, int s)
     return 0;
 }
 
-int vazia(MultiPile *p)
+int vazia(MultiPile *p, int s)
 {
-    return p->topo1 == -1 && p->topo2 == p->tamVet;
+    if( s )
+        return p->topo1 == -1;
+    if( !s )
+        return p->topo2 == p->tamVet;
 }
 
 int cheia(MultiPile *p)
 {
-    return p->topo1 >= p->topo2;
+    return p->topo1 == p->topo2-1;
 }
 
 Element desempilha(MultiPile *p, int s)
@@ -58,10 +61,12 @@ Element desempilha(MultiPile *p, int s)
     return error;
 }
 
-void reinicia(MultiPile *p)
+void reinicia(MultiPile *p, int s)
 {
-    p->topo1 = -1;
-    p->topo2 = p->tamVet;
+    if( s )
+        p->topo1 = -1;
+    else
+        p->topo2 = p->tamVet;
 }
 
 Element top(MultiPile *p , int s)
@@ -76,6 +81,8 @@ Element top(MultiPile *p , int s)
     return error;
 }
 
-int numElements(MultiPile *p){
-    return (p->topo1+1)+(p->tamVet-p->topo2);
+int numElements(MultiPile *p, int s){
+    if( s )
+        return (p->topo1+1);
+    return (p->tamVet-p->topo2);
 }
