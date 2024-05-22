@@ -6,14 +6,14 @@
 
 int main( int argc, char *argv[] ){
     //----------- Analise dos parametros da main --------------------------
-    if (argc < 2) {         // Analisa se foi fornecido o arquivo como segundo parâmetro da main.
-        printf( "[ E ]: Forneca o caminho completo do arquivo por meio do parametro. \n"); // Mensagem de erro.
-        exit(EXIT_FAILURE); // Tem 1 como saída.
-    }
+    // if (argc < 2) {         // Analisa se foi fornecido o arquivo como segundo parâmetro da main.
+    //     fprintf(stderr, "[ E ]: Forneca o caminho completo do arquivo por meio do parametro. \n"); // Mensagem de erro.
+    //     exit(EXIT_FAILURE); // Tem 1 como saída.
+    // }
 
     //----------- Leitura de arquivo, criação da pilha, inicialização das variáveis. ------------------------
 
-    FILE *f = fopen(argv[1],"rt");  // Abertura do arquivo.
+    FILE *f = fopen("test.html","rt");  // Abertura do arquivo.
 
     Pile *p = criaPilha(1); // Criação da pilha em que entrarão as strings.
     if(f==NULL){            // Verificação de falha na abertura do arquivo
